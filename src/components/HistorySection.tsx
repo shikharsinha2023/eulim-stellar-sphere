@@ -28,7 +28,7 @@ export default function HistorySection() {
           </p>
         </motion.div>
 
-        <div className="relative max-w-3xl mx-auto">
+        <div className="relative max-w-4xl mx-auto">
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-px" />
 
           {milestones.map((item, i) => (
@@ -38,13 +38,18 @@ export default function HistorySection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className={`relative flex items-start mb-12 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} flex-row`}
+              className={`relative flex items-start mb-16 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} flex-row`}
             >
               <div className="absolute left-4 md:left-1/2 h-3 w-3 rounded-full bg-primary -translate-x-1.5 md:-translate-x-1.5 mt-1.5 z-10 shadow-lg shadow-primary/30" />
               <div className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
                 <span className="text-sm font-bold text-primary">{item.year}</span>
                 <h3 className="font-display text-xl font-semibold mt-1">{item.title}</h3>
                 <p className="text-muted-foreground mt-1 text-sm">{item.desc}</p>
+                {/* Image placeholder for each milestone */}
+                <div className="mt-3 rounded-lg border border-dashed border-border bg-muted/10 h-32 flex items-center justify-center gap-2 hover:border-primary/30 transition-colors">
+                  <span className="text-lg">📸</span>
+                  <span className="text-xs text-muted-foreground">Add photo</span>
+                </div>
               </div>
             </motion.div>
           ))}
