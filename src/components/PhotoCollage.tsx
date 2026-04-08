@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import BentoGallery from "./BentoGallery";
 
 const placeholders = [
   { span: "md:col-span-2 md:row-span-2", label: "Club Event Photo 1" },
@@ -33,23 +34,7 @@ export default function PhotoCollage() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[180px] md:auto-rows-[220px]">
-          {placeholders.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className={`relative rounded-xl border border-dashed border-border bg-muted/30 flex items-center justify-center overflow-hidden group hover:border-primary/40 transition-colors ${item.span}`}
-            >
-              <p className="text-sm text-muted-foreground text-center px-2">
-                📸 {item.label}
-              </p>
-              <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </motion.div>
-          ))}
-        </div>
+        <BentoGallery items={placeholders} />
       </div>
     </section>
   );

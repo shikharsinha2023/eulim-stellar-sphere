@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Microscope, FileText, Lightbulb, Wrench } from "lucide-react";
+import BentoGallery from "./BentoGallery";
 
 const categories = [
   {
@@ -86,22 +87,16 @@ export default function ActivitiesSection() {
           viewport={{ once: true }}
         >
           <h3 className="font-display text-2xl font-semibold text-center mb-8">Exhibition Gallery</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[180px]">
-            {["Exhibition Setup", "Student Projects", "Judging Panel", "Award Ceremony", "Team Photo", "Audience"].map((label, i) => (
-              <motion.div
-                key={label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className={`relative rounded-xl border border-dashed border-border bg-muted/20 flex items-center justify-center overflow-hidden hover:border-primary/30 transition-colors ${
-                  i === 0 ? "md:col-span-2 md:row-span-2" : ""
-                }`}
-              >
-                <p className="text-sm text-muted-foreground text-center px-2">📸 {label}</p>
-              </motion.div>
-            ))}
-          </div>
+          <BentoGallery
+            items={[
+              { label: "Exhibition Setup", span: "md:col-span-2 md:row-span-2" },
+              { label: "Student Projects" },
+              { label: "Judging Panel" },
+              { label: "Award Ceremony" },
+              { label: "Team Photo" },
+              { label: "Audience" },
+            ]}
+          />
         </motion.div>
       </div>
     </section>

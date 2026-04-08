@@ -46,10 +46,25 @@ export default function HistorySection() {
                 <h3 className="font-display text-xl font-semibold mt-1">{item.title}</h3>
                 <p className="text-muted-foreground mt-1 text-sm">{item.desc}</p>
                 {/* Image placeholder for each milestone */}
-                <div className="mt-3 rounded-lg border border-dashed border-border bg-muted/10 h-32 flex items-center justify-center gap-2 hover:border-primary/30 transition-colors">
-                  <span className="text-lg">📸</span>
-                  <span className="text-xs text-muted-foreground">Add photo</span>
-                </div>
+                <motion.div
+                  className="mt-3 rounded-xl border border-border overflow-hidden h-32 relative cursor-pointer group/img"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="absolute inset-0 bg-muted/15 flex items-center justify-center">
+                    <span className="text-lg opacity-40">📸</span>
+                  </div>
+                  <motion.div
+                    className="absolute inset-0 rounded-xl pointer-events-none"
+                    whileHover={{
+                      boxShadow: "inset 0 0 20px hsl(var(--primary) / 0.1), 0 4px 15px hsl(var(--primary) / 0.08)",
+                      border: "1px solid hsl(var(--primary) / 0.4)",
+                    }}
+                    style={{ border: "1px solid transparent" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <span className="absolute bottom-2 left-3 text-xs text-muted-foreground opacity-60">Add photo</span>
+                </motion.div>
               </div>
             </motion.div>
           ))}
