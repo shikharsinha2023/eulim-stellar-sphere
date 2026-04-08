@@ -1,32 +1,25 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-interface BentoItem {
+export interface BentoItem {
   label: string;
   span?: string;
   img?: string;
 }
 
-interface BentoGalleryProps {
-  items: BentoItem[];
-  rowHeight?: string;
-  columns?: number;
-}
-
 function BentoCard({ item, index }: { item: BentoItem; index: number }) {
-  const [isHovered, setIsHovered] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.92 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ delay: index * 0.06, duration: 0.5 }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`relative rounded-xl border border-border overflow-hidden cursor-pointer group ${item.span || ""}`}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ delay: index * 0.05, duration: 0.45 }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className={`relative rounded-xl border border-border overflow-hidden cursor-pointer ${item.span || ""}`}
     >
-      {/* Background image or placeholder */}
       {item.img ? (
         <motion.img
           src={item.img}
@@ -34,98 +27,66 @@ function BentoCard({ item, index }: { item: BentoItem; index: number }) {
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
           animate={{
-            scale: isHovered ? 1.08 : 1,
-            filter: isHovered ? "brightness(0.7)" : "brightness(0.85)",
+            scale: hovered ? 1.08 : 1,
+            filter: hovered ? "brightness(0.65)" : "brightness(0.8)",
           }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           onError={(e) => {
-            const target = e.target as HTMLImageElement;
-            target.style.display = "none";
+            (e.target as HTMLImageElement).style.display = "none";
           }}
         />
       ) : (
-        <div className="absolute inset-0 bg-muted/20 border-dashed border border-border" />
+        <div className="absolute inset-0 bg-muted/15 flex items-center justify-center">
+          <span className="text-2xl opacity-40">📸</span>
+        </div>
       )}
 
       {/* Gradient overlay */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent"
-        animate={{ opacity: isHovered ? 1 : 0.6 }}
+        className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent"
+        animate={{ opacity: hovered ? 1 : 0.5 }}
         transition={{ duration: 0.3 }}
       />
 
-      {/* Glow effect on hover */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        animate={{
-          boxShadow: isHovered
-            ? "inset 0 0 30px hsl(var(--primary) / 0.15), 0 0 20px hsl(var(--primary) / 0.1)"
-            : "inset 0 0 0px transparent",
-        }}
-        transition={{ duration: 0.4 }}
-      />
-
-      {/* Border glow */}
+      {/* Primary glow border */}
       <motion.div
         className="absolute inset-0 rounded-xl pointer-events-none"
-        style={{ border: "1px solid transparent" }}
         animate={{
-          borderColor: isHovered
-            ? "hsl(var(--primary) / 0.4)"
-            : "hsl(var(--border))",
+          boxShadow: hovered
+            ? "inset 0 0 25px hsl(var(--primary) / 0.12), 0 4px 20px hsl(var(--primary) / 0.08)"
+            : "inset 0 0 0px transparent, 0 0 0px transparent",
+          border: hovered ? "1px solid hsl(var(--primary) / 0.4)" : "1px solid transparent",
         }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.35 }}
       />
 
       {/* Label */}
       <motion.div
         className="absolute bottom-0 left-0 right-0 p-3 z-10"
-        animate={{ y: isHovered ? 0 : 4, opacity: isHovered ? 1 : 0.7 }}
+        animate={{ y: hovered ? 0 : 6, opacity: hovered ? 1 : 0.6 }}
         transition={{ duration: 0.3 }}
       >
-        <span className="text-sm font-medium text-foreground/90 drop-shadow-lg">
-          {item.img ? "" : "📸 "}{item.label}
+        <span className="text-xs md:text-sm font-medium text-foreground drop-shadow-lg">
+          {item.label}
         </span>
       </motion.div>
 
-      {/* Corner accent */}
+      {/* Dot accent */}
       <motion.div
-        className="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary/60"
-        animate={{ scale: isHovered ? 1.5 : 0, opacity: isHovered ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
+        className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-primary"
+        animate={{ scale: hovered ? 1 : 0, opacity: hovered ? 0.8 : 0 }}
+        transition={{ duration: 0.25 }}
       />
     </motion.div>
   );
 }
 
-export default function BentoGallery({
-  items,
-  rowHeight = "180px",
-  columns = 4,
-}: BentoGalleryProps) {
+export default function BentoGallery({ items }: { items: BentoItem[] }) {
   return (
-    <div
-      className={`grid grid-cols-2 gap-3 md:gap-4`}
-      style={{
-        gridTemplateColumns: `repeat(${Math.min(columns, 2)}, 1fr)`,
-        gridAutoRows: rowHeight,
-      }}
-    >
-      <style>{`
-        @media (min-width: 768px) {
-          .bento-grid-${columns} {
-            grid-template-columns: repeat(${columns}, 1fr) !important;
-          }
-        }
-      `}</style>
-      <div
-        className={`col-span-full grid grid-cols-2 md:grid-cols-${columns} gap-3 md:gap-4 bento-grid-${columns}`}
-        style={{ gridAutoRows: rowHeight }}
-      >
-        {items.map((item, i) => (
-          <BentoCard key={item.label + i} item={item} index={i} />
-        ))}
-      </div>
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[160px] md:auto-rows-[200px]">
+      {items.map((item, i) => (
+        <BentoCard key={`${item.label}-${i}`} item={item} index={i} />
+      ))}
     </div>
   );
 }
