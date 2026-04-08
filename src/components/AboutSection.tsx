@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BookOpen, Award, Globe, Users } from "lucide-react";
+import { BookOpen, Award, Globe, Users, GraduationCap, Atom } from "lucide-react";
 
 const highlights = [
   { icon: BookOpen, title: "Founded in 1969", desc: "Established as Christ College, pioneering innovative curricula and academic discipline in Indian higher education." },
@@ -8,10 +8,20 @@ const highlights = [
   { icon: Users, title: "Deemed to be University", desc: "Conferred Deemed to be University status in 2008 by the Ministry of Human Resource Development, Government of India." },
 ];
 
+const campuses = [
+  "Bangalore Central Campus",
+  "Bangalore Kengeri Campus",
+  "Bangalore Bannerghatta Campus",
+  "Bangalore Yeshwanthpur Campus",
+  "Pune Lavasa Campus",
+  "Delhi NCR Campus",
+];
+
 export default function AboutSection() {
   return (
     <section id="about" className="relative py-24 md:py-32">
       <div className="container mx-auto px-4">
+        {/* University Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -20,12 +30,9 @@ export default function AboutSection() {
         >
           <span className="text-sm font-semibold text-primary tracking-widest uppercase">About the University</span>
           <h2 className="font-display text-4xl md:text-5xl font-bold mt-3">CHRIST (Deemed to be University)</h2>
-          <p className="mt-4 text-muted-foreground max-w-3xl mx-auto text-lg">
-            Excellence and Service
-          </p>
+          <p className="mt-4 text-muted-foreground max-w-3xl mx-auto text-lg">Excellence and Service</p>
         </motion.div>
 
-        {/* Origin Story */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +75,7 @@ export default function AboutSection() {
         </motion.div>
 
         {/* Highlight Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {highlights.map((f, i) => (
             <motion.div
               key={f.title}
@@ -87,15 +94,79 @@ export default function AboutSection() {
           ))}
         </div>
 
-        {/* Image placeholder */}
+        {/* Campus Photos */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 rounded-2xl border border-dashed border-border bg-muted/30 h-80 flex items-center justify-center"
+          className="mb-24"
         >
-          <p className="text-muted-foreground">📸 University campus photo — add your image here</p>
+          <h3 className="font-display text-2xl font-semibold text-center mb-8">Our Campuses</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {campuses.map((campus, i) => (
+              <motion.div
+                key={campus}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="rounded-xl border border-dashed border-border bg-muted/20 h-48 flex flex-col items-center justify-center gap-2 hover:border-primary/30 transition-colors"
+              >
+                <span className="text-2xl">📸</span>
+                <span className="text-sm text-muted-foreground text-center px-4">{campus}</span>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
+
+        {/* EULIM Science Club Section */}
+        <div className="section-divider mb-24" />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <span className="text-sm font-semibold text-primary tracking-widest uppercase">About the Club</span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mt-3">
+            <Atom className="inline-block mr-3 text-primary" size={40} />
+            EULIM Science Club
+          </h2>
+        </motion.div>
+
+        <div className="max-w-5xl mx-auto grid md:grid-cols-5 gap-8 items-start">
+          {/* Club photo placeholder */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="md:col-span-2 rounded-2xl border border-dashed border-border bg-muted/20 h-80 flex flex-col items-center justify-center gap-3 hover:border-primary/30 transition-colors"
+          >
+            <span className="text-4xl">📸</span>
+            <span className="text-sm text-muted-foreground">Club Photo</span>
+          </motion.div>
+
+          {/* Club description */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="md:col-span-3 space-y-5"
+          >
+            <p className="text-muted-foreground leading-relaxed">
+              The Eulim Science Club, a vibrant and dynamic hub under the School of Sciences at CHRIST (Deemed to be University), Delhi NCR Campus, is the epicenter of intellectual curiosity and scientific exploration. This prestigious club is more than just an academic society, it is a thriving community where minds converge to explore, innovate, and challenge the boundaries of knowledge.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Throughout the academic year, Eulim orchestrates a diverse array of events that cater to the inquisitive minds of the student body. From captivating corporate talks that bridge the gap between academia and industry, to immersive science exhibitions that showcase cutting-edge research and discoveries, every event is meticulously crafted to ignite the spark of curiosity.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              The club also hosts thought-provoking panel discussions, bringing together experts from various scientific domains to debate and dissect contemporary issues. These discussions provide a platform for students to engage with thought leaders, gain new perspectives, and refine their understanding of the scientific world.
+            </p>
+            <p className="text-foreground font-medium leading-relaxed italic border-l-2 border-primary pl-4">
+              Eulim Science Club is not just about learning, it's about creating a vibrant culture of scientific inquiry, collaboration, and innovation.
+            </p>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
