@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BookOpen, Award, Globe, Users, GraduationCap, Atom } from "lucide-react";
+import { BookOpen, Award, Globe, Users, Atom } from "lucide-react";
 
 const highlights = [
   { icon: BookOpen, title: "Founded in 1969", desc: "Established as Christ College, pioneering innovative curricula and academic discipline in Indian higher education." },
@@ -9,12 +9,12 @@ const highlights = [
 ];
 
 const campuses = [
-  "Bangalore Central Campus",
-  "Bangalore Kengeri Campus",
-  "Bangalore Bannerghatta Campus",
-  "Bangalore Yeshwanthpur Campus",
-  "Pune Lavasa Campus",
-  "Delhi NCR Campus",
+  { name: "Bangalore Central Campus", img: "https://christuniversity.in/uploads/userfiles/images/banner1(16).jpg" },
+  { name: "Bangalore Kengeri Campus", img: "https://christuniversity.in/uploads/userfiles/images/kengeri-campus.jpg" },
+  { name: "Bangalore Bannerghatta Campus", img: "https://christuniversity.in/uploads/userfiles/images/Bannerghatta-campus.jpg" },
+  { name: "Bangalore Yeshwanthpur Campus", img: "https://christuniversity.in/uploads/userfiles/images/yeshwanthpur-campus.jpg" },
+  { name: "Pune Lavasa Campus", img: "https://christuniversity.in/uploads/userfiles/images/lavasa-campus.jpg" },
+  { name: "Delhi NCR Campus", img: "https://ncr.christuniversity.in/images/history1.png" },
 ];
 
 export default function AboutSection() {
@@ -33,44 +33,61 @@ export default function AboutSection() {
           <p className="mt-4 text-muted-foreground max-w-3xl mx-auto text-lg">Excellence and Service</p>
         </motion.div>
 
+        {/* Two-column layout with official images */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto mb-16 space-y-6"
+          className="max-w-5xl mx-auto mb-16"
         >
-          <div className="rounded-xl border border-border bg-card p-8">
-            <h3 className="font-display text-2xl font-semibold mb-4 text-primary">The Vision</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              CHRIST (Deemed to be University) was born out of the educational vision of <strong className="text-foreground">St Kuriakose Elias Chavara</strong>, an educationalist and social reformer of the nineteenth century in South India. He founded the first Catholic indigenous congregation, <strong className="text-foreground">Carmelites of Mary Immaculate (CMI)</strong>, in 1831 which administers CHRIST (Deemed to be University).
-            </p>
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <div className="rounded-xl border border-border overflow-hidden mb-4">
+                <img
+                  src="https://ncr.christuniversity.in/images/history1.png"
+                  alt="Christ University Campus"
+                  className="w-full h-56 object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="rounded-xl border border-border bg-card p-6">
+                <h3 className="font-display text-xl font-semibold mb-3 text-primary">The Vision</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  CHRIST (Deemed to be University) was born out of the educational vision of <strong className="text-foreground">St Kuriakose Elias Chavara</strong>, an educationalist and social reformer of the nineteenth century in South India. He founded the first Catholic indigenous congregation, <strong className="text-foreground">Carmelites of Mary Immaculate (CMI)</strong>, in 1831 which administers CHRIST (Deemed to be University).
+                </p>
+              </div>
+            </div>
+            <div>
+              <div className="rounded-xl border border-border overflow-hidden mb-4">
+                <img
+                  src="https://ncr.christuniversity.in/images/history2.png"
+                  alt="Christ University Building"
+                  className="w-full h-56 object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="rounded-xl border border-border bg-card p-6">
+                <h3 className="font-display text-xl font-semibold mb-3 text-primary">The Journey</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  Established as 'Christ College' in 1969, it undertook path-breaking initiatives in Indian higher education. The UGC conferred Autonomy in 2004 and in 2008 declared it a Deemed to be University. Currently accredited with NAAC 'A+' Grade and ranked 63 in NIRF India Ranking 2025.
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="rounded-xl border border-border bg-card p-8">
-            <h3 className="font-display text-2xl font-semibold mb-4 text-primary">The Journey</h3>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              CHRIST (Deemed to be University) was established as 'Christ College' in 1969. It undertook path-breaking initiatives in Indian higher education with the introduction of innovative and modern curricula, insistence on academic discipline, imparting of Holistic Education and adoption of global higher education practices with the support of creative and dedicated staff.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              The University Grants Commission (UGC) of India conferred Autonomy to Christ College in 2004 and identified it as an Institution with Potential for Excellence in 2006. In 2008, under Section 3 of the UGC Act, 1956, the Ministry of Human Resource Development of the Government of India declared the institution a Deemed to be University. The University is ranked among top 100 universities in India at 63 in the NIRF India Ranking 2025.
-            </p>
-          </div>
-
-          <div className="rounded-xl border border-border bg-card p-8">
-            <h3 className="font-display text-2xl font-semibold mb-4 text-primary">The University Today</h3>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              The multi-disciplinary University focuses on teaching, research and service, offering Bachelor, Master and Doctoral programmes in humanities, social sciences, sciences, commerce, management, engineering, architecture, education, and law to about 40,000+ students across campuses in Bangalore, Pune Lavasa, and Delhi NCR.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              The campus is a living example of harmonious multiculturalism with students from all states and union territories of India and around 60 different countries. CHRIST (Deemed to be University) publishes six peer-reviewed research journals and has published more than 300 books. A promoter of sports, music and literary activities, it is a nurturing ground for creative excellence.
-            </p>
-          </div>
-
-          <div className="rounded-xl border border-border bg-card p-8">
-            <h3 className="font-display text-2xl font-semibold mb-4 text-primary">Mission</h3>
-            <p className="text-muted-foreground leading-relaxed italic">
-              "CHRIST (Deemed to be University) is a nurturing ground for an individual's holistic development to make effective contribution to the society in a dynamic environment."
-            </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="rounded-xl border border-border bg-card p-6">
+              <h3 className="font-display text-xl font-semibold mb-3 text-primary">The University Today</h3>
+              <p className="text-muted-foreground leading-relaxed text-sm">
+                The multi-disciplinary University focuses on teaching, research and service, offering programmes to about 40,000+ students across campuses in Bangalore, Pune Lavasa, and Delhi NCR. The campus is a living example of harmonious multiculturalism with students from all states and around 60 different countries.
+              </p>
+            </div>
+            <div className="rounded-xl border border-border bg-card p-6">
+              <h3 className="font-display text-xl font-semibold mb-3 text-primary">Mission</h3>
+              <p className="text-muted-foreground leading-relaxed italic text-sm">
+                "CHRIST (Deemed to be University) is a nurturing ground for an individual's holistic development to make effective contribution to the society in a dynamic environment."
+              </p>
+            </div>
           </div>
         </motion.div>
 
@@ -105,15 +122,29 @@ export default function AboutSection() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {campuses.map((campus, i) => (
               <motion.div
-                key={campus}
+                key={campus.name}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="rounded-xl border border-dashed border-border bg-muted/20 h-48 flex flex-col items-center justify-center gap-2 hover:border-primary/30 transition-colors"
+                className="group rounded-xl border border-border overflow-hidden bg-card hover:border-primary/30 hover:card-glow transition-all duration-300"
               >
-                <span className="text-2xl">📸</span>
-                <span className="text-sm text-muted-foreground text-center px-4">{campus}</span>
+                <div className="h-40 overflow-hidden">
+                  <img
+                    src={campus.img}
+                    alt={campus.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      target.parentElement!.innerHTML = '<div class="w-full h-full flex items-center justify-center bg-muted/20"><span class="text-2xl">📸</span></div>';
+                    }}
+                  />
+                </div>
+                <div className="p-3">
+                  <span className="text-sm text-muted-foreground">{campus.name}</span>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -135,7 +166,6 @@ export default function AboutSection() {
         </motion.div>
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-5 gap-8 items-start">
-          {/* Club photo placeholder */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -146,7 +176,6 @@ export default function AboutSection() {
             <span className="text-sm text-muted-foreground">Club Photo</span>
           </motion.div>
 
-          {/* Club description */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
