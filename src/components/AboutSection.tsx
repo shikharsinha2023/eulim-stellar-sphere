@@ -120,35 +120,13 @@ export default function AboutSection() {
           className="mb-24"
         >
           <h3 className="font-display text-2xl font-semibold text-center mb-8">Our Campuses</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {campuses.map((campus, i) => (
-              <motion.div
-                key={campus.name}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="group rounded-xl border border-border overflow-hidden bg-card hover:border-primary/30 hover:card-glow transition-all duration-300"
-              >
-                <div className="h-40 overflow-hidden">
-                  <img
-                    src={campus.img}
-                    alt={campus.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      target.parentElement!.innerHTML = '<div class="w-full h-full flex items-center justify-center bg-muted/20"><span class="text-2xl">📸</span></div>';
-                    }}
-                  />
-                </div>
-                <div className="p-3">
-                  <span className="text-sm text-muted-foreground">{campus.name}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <BentoGallery
+            items={campuses.map((c, i) => ({
+              label: c.name,
+              img: c.img,
+              span: i === 0 ? "md:col-span-2 md:row-span-2" : "",
+            }))}
+          />
         </motion.div>
 
         {/* EULIM Science Club Section */}
