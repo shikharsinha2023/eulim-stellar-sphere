@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Microscope, FileText, Lightbulb, Wrench } from "lucide-react";
+import BentoGallery from "./BentoGallery";
 
 const categories = [
   {

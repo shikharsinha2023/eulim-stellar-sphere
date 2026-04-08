@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { BookOpen, Award, Globe, Users, Atom } from "lucide-react";
+import BentoGallery from "./BentoGallery";
 
 const highlights = [
   { icon: BookOpen, title: "Founded in 1969", desc: "Established as Christ College, pioneering innovative curricula and academic discipline in Indian higher education." },
