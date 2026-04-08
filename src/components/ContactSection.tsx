@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin, Instagram } from "lucide-react";
-import eulimLogo from "@/assets/eulim-logo.jpeg";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="relative py-24 md:py-32">
-      <div className="section-divider mb-24" />
+    <section className="relative py-24 md:py-32">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -42,17 +40,6 @@ export default function ContactSection() {
               <p className="text-sm text-muted-foreground">{c.value}</p>
             </motion.a>
           ))}
-        </div>
-      </div>
-
-      {/* Footer */}
-      <div className="mt-24 border-t border-border pt-8">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <img src={eulimLogo} alt="Eulim" className="h-8 w-8 rounded-full object-cover" />
-            <span className="font-display text-sm font-semibold">EULIM Science Club</span>
-          </div>
-          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} EULIM Science Club — School of Sciences. All rights reserved.</p>
         </div>
       </div>
     </section>

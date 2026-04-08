@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import AtomScene from "./AtomScene";
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <AtomScene />
       <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background z-10" />
 
@@ -44,24 +45,23 @@ export default function HeroSection() {
           transition={{ delay: 0.8 }}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a href="#about" className="rounded-lg bg-primary px-8 py-3.5 font-semibold text-primary-foreground hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20">
+          <Link to="/about" className="rounded-lg bg-primary px-8 py-3.5 font-semibold text-primary-foreground hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20">
             Learn More
-          </a>
-          <a href="#activities" className="rounded-lg border border-border px-8 py-3.5 font-semibold text-foreground hover:bg-muted/50 transition-colors">
+          </Link>
+          <Link to="/activities" className="rounded-lg border border-border px-8 py-3.5 font-semibold text-foreground hover:bg-muted/50 transition-colors">
             Our Activities
-          </a>
+          </Link>
         </motion.div>
       </div>
 
-      <motion.a
-        href="#about"
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-muted-foreground animate-float"
       >
         <ChevronDown size={28} />
-      </motion.a>
+      </motion.div>
     </section>
   );
 }
