@@ -1,39 +1,47 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import eulimLogo from "@/assets/eulim-logo.jpeg";
 
 const links = [
-  { label: "Home", href: "#hero" },
-  { label: "About", href: "#about" },
-  { label: "History", href: "#history" },
-  { label: "Activities", href: "#activities" },
-  { label: "Team", href: "#team" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "History", to: "/history" },
+  { label: "Activities", to: "/activities" },
+  { label: "Team", to: "/team" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
-        <a href="#hero" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <img src={eulimLogo} alt="Eulim Science Club" className="h-10 w-10 rounded-full object-cover" />
           <span className="font-display text-lg font-bold text-foreground">EULIM <span className="text-primary">Science Club</span></span>
-        </a>
+        </Link>
 
         <div className="hidden md:flex items-center gap-1">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="px-4 py-2 text-sm text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-muted/50">
+            <Link
+              key={l.to}
+              to={l.to}
+              className={`px-4 py-2 text-sm transition-colors rounded-lg hover:bg-muted/50 ${
+                location.pathname === l.to ? "text-primary font-semibold" : "text-muted-foreground hover:text-primary"
+              }`}
+            >
               {l.label}
-            </a>
+            </Link>
           ))}
         </div>
 
-        <a href="#contact" className="hidden md:inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors">
+        <Link to="/contact" className="hidden md:inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors">
           Join Us
-        </a>
+        </Link>
 
         <button onClick={() => setOpen(!open)} className="md:hidden text-foreground">
           {open ? <X size={24} /> : <Menu size={24} />}
@@ -50,13 +58,20 @@ export default function Navbar() {
           >
             <div className="flex flex-col p-4 gap-1">
               {links.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="px-4 py-3 text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-muted/50">
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  onClick={() => setOpen(false)}
+                  className={`px-4 py-3 transition-colors rounded-lg hover:bg-muted/50 ${
+                    location.pathname === l.to ? "text-primary font-semibold" : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
                   {l.label}
-                </a>
+                </Link>
               ))}
-              <a href="#contact" onClick={() => setOpen(false)} className="mt-2 text-center rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground">
+              <Link to="/contact" onClick={() => setOpen(false)} className="mt-2 text-center rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground">
                 Join Us
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
