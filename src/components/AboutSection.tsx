@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
 import { BookOpen, Award, Globe, Users, Atom } from "lucide-react";
 import BentoGallery from "./BentoGallery";
+import campusYeshwanthpur from "@/assets/campus-yeshwanthpur.png";
+import campusBannerghatta from "@/assets/campus-bannerghatta.png";
+import campusKengeri from "@/assets/campus-kengeri.png";
+import campusCentral from "@/assets/campus-central.png";
+import campusLavasa from "@/assets/campus-lavasa.png";
 
 const highlights = [
   { icon: BookOpen, title: "Founded in 1969", desc: "Established as Christ College, pioneering innovative curricula and academic discipline in Indian higher education." },
