@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { BookOpen, Award, Globe, Users, Atom } from "lucide-react";
 import BentoGallery from "./BentoGallery";
+import { GlowCard } from "./ui/spotlight-card";
 import campusYeshwanthpur from "@/assets/campus-yeshwanthpur.png";
 import campusBannerghatta from "@/assets/campus-bannerghatta.png";
 import campusKengeri from "@/assets/campus-kengeri.png";
@@ -106,13 +107,16 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group rounded-xl border border-border bg-card p-6 hover:border-primary/30 hover:card-glow transition-all duration-300"
             >
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
-                <f.icon size={24} />
-              </div>
-              <h3 className="font-display text-lg font-semibold mb-2">{f.title}</h3>
-              <p className="text-sm text-muted-foreground">{f.desc}</p>
+              <GlowCard glowColor="orange" className="p-6 h-full group">
+                <div className="relative z-10">
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
+                    <f.icon size={24} />
+                  </div>
+                  <h3 className="font-display text-lg font-semibold mb-2">{f.title}</h3>
+                  <p className="text-sm text-muted-foreground">{f.desc}</p>
+                </div>
+              </GlowCard>
             </motion.div>
           ))}
         </div>

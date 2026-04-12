@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { GlowCard } from "./ui/spotlight-card";
 
 const milestones = [
   { year: "2019", title: "Club Founded", desc: "EULIM Science Club was established under the School of Sciences at CHRIST (Deemed to be University), Delhi NCR Campus." },
@@ -45,26 +46,13 @@ export default function HistorySection() {
                 <span className="text-sm font-bold text-primary">{item.year}</span>
                 <h3 className="font-display text-xl font-semibold mt-1">{item.title}</h3>
                 <p className="text-muted-foreground mt-1 text-sm">{item.desc}</p>
-                {/* Image placeholder for each milestone */}
-                <motion.div
-                  className="mt-3 rounded-xl border border-border overflow-hidden h-32 relative cursor-pointer group/img"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="absolute inset-0 bg-muted/15 flex items-center justify-center">
+                {/* Image placeholder with GlowCard */}
+                <GlowCard glowColor="orange" className="mt-3 h-32">
+                  <div className="absolute inset-0 bg-muted/15 flex items-center justify-center rounded-2xl">
                     <span className="text-lg opacity-40">📸</span>
                   </div>
-                  <motion.div
-                    className="absolute inset-0 rounded-xl pointer-events-none"
-                    whileHover={{
-                      boxShadow: "inset 0 0 20px hsl(var(--primary) / 0.1), 0 4px 15px hsl(var(--primary) / 0.08)",
-                      border: "1px solid hsl(var(--primary) / 0.4)",
-                    }}
-                    style={{ border: "1px solid transparent" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                  <span className="absolute bottom-2 left-3 text-xs text-muted-foreground opacity-60">Add photo</span>
-                </motion.div>
+                  <span className="absolute bottom-2 left-3 text-xs text-muted-foreground opacity-60 z-10">Add photo</span>
+                </GlowCard>
               </div>
             </motion.div>
           ))}

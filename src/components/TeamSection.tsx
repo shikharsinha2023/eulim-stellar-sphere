@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Crown, Shield, Star, Sparkles } from "lucide-react";
+import { GlowCard } from "./ui/spotlight-card";
 
 const team = [
   { name: "Shayan Azmi", role: "Architect of Inquiry", tag: "Leader", icon: Crown },
@@ -33,22 +34,23 @@ export default function TeamSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="text-center group"
             >
-              <div className="mx-auto mb-4 h-40 w-40 rounded-full border-2 border-dashed border-border bg-muted/20 flex items-center justify-center group-hover:border-primary/40 transition-colors relative overflow-hidden">
-                <span className="text-muted-foreground text-sm">📸 Add photo</span>
-                <motion.div
-                  className="absolute inset-0 rounded-full bg-primary/5"
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 3, repeat: Infinity, delay: i * 0.3 }}
-                />
-              </div>
-              <div className="flex items-center justify-center gap-1.5 mb-1">
-                <m.icon size={14} className="text-primary" />
-                <h3 className="font-display text-lg font-semibold">{m.name}</h3>
-              </div>
-              <p className="text-sm text-primary font-medium">{m.role}</p>
-              <p className="text-xs text-muted-foreground mt-0.5">{m.tag}</p>
+              <GlowCard glowColor="orange" className="p-6 text-center group">
+                <div className="mx-auto mb-4 h-36 w-36 rounded-full border-2 border-dashed border-border bg-muted/20 flex items-center justify-center group-hover:border-primary/40 transition-colors relative overflow-hidden z-10">
+                  <span className="text-muted-foreground text-sm">📸 Add photo</span>
+                  <motion.div
+                    className="absolute inset-0 rounded-full bg-primary/5"
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 3, repeat: Infinity, delay: i * 0.3 }}
+                  />
+                </div>
+                <div className="flex items-center justify-center gap-1.5 mb-1 z-10 relative">
+                  <m.icon size={14} className="text-primary" />
+                  <h3 className="font-display text-lg font-semibold">{m.name}</h3>
+                </div>
+                <p className="text-sm text-primary font-medium z-10 relative">{m.role}</p>
+                <p className="text-xs text-muted-foreground mt-0.5 z-10 relative">{m.tag}</p>
+              </GlowCard>
             </motion.div>
           ))}
         </div>
