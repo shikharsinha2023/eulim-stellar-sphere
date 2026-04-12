@@ -12,6 +12,7 @@ const links = [
   { label: "Activities", to: "/activities" },
   { label: "Team", to: "/team" },
   { label: "Contact", to: "/contact" },
+  { label: "Sponsor Us", to: "/sponsors" },
 ];
 
 export default function Navbar() {

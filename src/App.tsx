@@ -9,6 +9,7 @@ import History from "./pages/History.tsx";
 import Activities from "./pages/Activities.tsx";
 import Team from "./pages/Team.tsx";
 import Contact from "./pages/Contact.tsx";
+import Sponsors from "./pages/Sponsors.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/activities" element={<Activities />} />
           <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/sponsors" element={<Sponsors />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
