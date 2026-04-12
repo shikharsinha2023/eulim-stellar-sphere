@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
 import { BookOpen, Award, Globe, Users, Atom } from "lucide-react";
 import BentoGallery from "./BentoGallery";
+import campusYeshwanthpur from "@/assets/campus-yeshwanthpur.png";
+import campusBannerghatta from "@/assets/campus-bannerghatta.png";
+import campusKengeri from "@/assets/campus-kengeri.png";
+import campusCentral from "@/assets/campus-central.png";
+import campusLavasa from "@/assets/campus-lavasa.png";
 
 const highlights = [
   { icon: BookOpen, title: "Founded in 1969", desc: "Established as Christ College, pioneering innovative curricula and academic discipline in Indian higher education." },
@@ -10,11 +15,11 @@ const highlights = [
 ];
 
 const campuses = [
-  { name: "Bangalore Central Campus", img: "https://christuniversity.in/uploads/userfiles/images/banner1(16).jpg" },
-  { name: "Bangalore Kengeri Campus", img: "https://christuniversity.in/uploads/userfiles/images/kengeri-campus.jpg" },
-  { name: "Bangalore Bannerghatta Campus", img: "https://christuniversity.in/uploads/userfiles/images/Bannerghatta-campus.jpg" },
-  { name: "Bangalore Yeshwanthpur Campus", img: "https://christuniversity.in/uploads/userfiles/images/yeshwanthpur-campus.jpg" },
-  { name: "Pune Lavasa Campus", img: "https://christuniversity.in/uploads/userfiles/images/lavasa-campus.jpg" },
+  { name: "Bangalore Yeshwanthpur Campus", img: campusYeshwanthpur },
+  { name: "Bangalore Bannerghatta Campus", img: campusBannerghatta },
+  { name: "Bangalore Kengeri Campus", img: campusKengeri },
+  { name: "Bangalore Central Campus", img: campusCentral },
+  { name: "Pune Lavasa Campus", img: campusLavasa },
   { name: "Delhi NCR Campus", img: "https://ncr.christuniversity.in/images/history1.png" },
 ];
 
