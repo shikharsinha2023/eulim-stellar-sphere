@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Microscope, FileText, Lightbulb, Wrench, MapPin, Calendar, Clock } from "lucide-react";
 import BentoGallery from "./BentoGallery";
+import { GlowCard } from "./ui/spotlight-card";
 
 import amIndustries from "@/assets/sponsors/am-industries.jpg";
 import wellvora from "@/assets/sponsors/wellvora.jpg";
@@ -163,16 +164,16 @@ export default function ActivitiesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="group relative rounded-xl border border-border bg-card p-8 hover:border-primary/30 transition-all duration-300 overflow-hidden"
             >
-              <div className="absolute top-0 right-0 h-32 w-32 bg-primary/5 rounded-bl-full group-hover:bg-primary/10 transition-colors" />
-              <div className="relative">
-                <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <c.icon size={28} />
+              <GlowCard glowColor="orange" className="p-8 h-full group">
+                <div className="relative z-10">
+                  <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <c.icon size={28} />
+                  </div>
+                  <h3 className="font-display text-xl font-semibold mb-2">{c.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{c.desc}</p>
                 </div>
-                <h3 className="font-display text-xl font-semibold mb-2">{c.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{c.desc}</p>
-              </div>
+              </GlowCard>
             </motion.div>
           ))}
         </div>
