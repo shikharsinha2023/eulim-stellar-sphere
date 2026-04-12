@@ -15,11 +15,11 @@ const highlights = [
 ];
 
 const campuses = [
-  { name: "Bangalore Central Campus", img: "https://christuniversity.in/uploads/userfiles/images/banner1(16).jpg" },
-  { name: "Bangalore Kengeri Campus", img: "https://christuniversity.in/uploads/userfiles/images/kengeri-campus.jpg" },
-  { name: "Bangalore Bannerghatta Campus", img: "https://christuniversity.in/uploads/userfiles/images/Bannerghatta-campus.jpg" },
-  { name: "Bangalore Yeshwanthpur Campus", img: "https://christuniversity.in/uploads/userfiles/images/yeshwanthpur-campus.jpg" },
-  { name: "Pune Lavasa Campus", img: "https://christuniversity.in/uploads/userfiles/images/lavasa-campus.jpg" },
+  { name: "Bangalore Yeshwanthpur Campus", img: campusYeshwanthpur },
+  { name: "Bangalore Bannerghatta Campus", img: campusBannerghatta },
+  { name: "Bangalore Kengeri Campus", img: campusKengeri },
+  { name: "Bangalore Central Campus", img: campusCentral },
+  { name: "Pune Lavasa Campus", img: campusLavasa },
   { name: "Delhi NCR Campus", img: "https://ncr.christuniversity.in/images/history1.png" },
 ];
 
