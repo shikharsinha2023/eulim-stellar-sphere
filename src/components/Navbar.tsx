@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import eulimLogo from "@/assets/eulim-logo.jpeg";
 import JoinUsDialog from "./JoinUsDialog";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const links = [
   { label: "Home", to: "/" },
