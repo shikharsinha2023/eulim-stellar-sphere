@@ -44,12 +44,15 @@ export default function Navbar() {
             ))}
           </div>
 
-          <button
-            onClick={() => setJoinOpen(true)}
-            className="hidden md:inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
-          >
-            Join Us
-          </button>
+          <div className="hidden md:flex items-center gap-2">
+            <ThemeSwitcher />
+            <button
+              onClick={() => setJoinOpen(true)}
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+            >
+              Join Us
+            </button>
+          </div>
 
           <button onClick={() => setOpen(!open)} className="md:hidden text-foreground">
             {open ? <X size={24} /> : <Menu size={24} />}
