@@ -114,9 +114,9 @@ export default function ActivitiesSection() {
           viewport={{ once: true }}
           className="text-center mb-8"
         >
-          <span className="text-sm font-semibold text-primary tracking-widest uppercase">Flagship Event</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-3">The Catalyst Arena</h2>
-          <p className="text-muted-foreground mt-2 text-lg">Science Exhibition 2025</p>
+          <span className="text-xs font-medium text-primary tracking-widest uppercase">Flagship Event</span>
+          <h2 className="font-display text-3xl md:text-4xl font-bold mt-2">Science Exhibition 2025</h2>
+          <p className="text-muted-foreground mt-1 text-base">The Catalyst Arena</p>
         </motion.div>
 
         {/* Event Meta */}
@@ -197,9 +197,9 @@ export default function ActivitiesSection() {
           viewport={{ once: true }}
           className="text-center mb-8"
         >
-          <span className="text-sm font-semibold text-primary tracking-widest uppercase">Interactive Event</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-3">The Enigma Expedition</h2>
-          <p className="text-muted-foreground mt-2 text-lg">Quantum Quest 2026</p>
+          <span className="text-xs font-medium text-primary tracking-widest uppercase">Interactive Event</span>
+          <h2 className="font-display text-3xl md:text-4xl font-bold mt-2">Quantum Quest 2026</h2>
+          <p className="text-muted-foreground mt-1 text-base">The Enigma Expedition</p>
         </motion.div>
 
         {/* Event Meta */}
