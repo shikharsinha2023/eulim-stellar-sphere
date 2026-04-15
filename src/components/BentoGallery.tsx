@@ -49,29 +49,11 @@ function BentoCard({ item, index }: { item: BentoItem; index: number }) {
             </div>
           )}
 
-          {/* Gradient overlay */}
+          {/* Subtle hover overlay */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent rounded-2xl"
-            animate={{ opacity: hovered ? 1 : 0.5 }}
+            className="absolute inset-0 bg-background/10 rounded-2xl"
+            animate={{ opacity: hovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}
-          />
-
-          {/* Label */}
-          <motion.div
-            className="absolute bottom-0 left-0 right-0 p-3 z-10"
-            animate={{ y: hovered ? 0 : 6, opacity: hovered ? 1 : 0.6 }}
-            transition={{ duration: 0.3 }}
-          >
-            <span className="text-xs md:text-sm font-medium text-foreground drop-shadow-lg">
-              {item.label}
-            </span>
-          </motion.div>
-
-          {/* Dot accent */}
-          <motion.div
-            className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-primary"
-            animate={{ scale: hovered ? 1 : 0, opacity: hovered ? 0.8 : 0 }}
-            transition={{ duration: 0.25 }}
           />
         </div>
       </GlowCard>

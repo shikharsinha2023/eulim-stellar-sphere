@@ -7,6 +7,7 @@ import campusBannerghatta from "@/assets/campus-bannerghatta.png";
 import campusKengeri from "@/assets/campus-kengeri.png";
 import campusCentral from "@/assets/campus-central.png";
 import campusLavasa from "@/assets/campus-lavasa.png";
+import clubPhoto from "@/assets/club-photo.jpeg";
 
 const highlights = [
   { icon: BookOpen, title: "Founded in 1969", desc: "Established as Christ College, pioneering innovative curricula and academic discipline in Indian higher education." },
@@ -38,6 +39,7 @@ export default function AboutSection() {
           <span className="text-sm font-semibold text-primary tracking-widest uppercase">About the University</span>
           <h2 className="font-display text-4xl md:text-5xl font-bold mt-3">CHRIST (Deemed to be University)</h2>
           <p className="mt-4 text-muted-foreground max-w-3xl mx-auto text-lg">Excellence and Service</p>
+          <p className="mt-2 text-muted-foreground max-w-3xl mx-auto text-sm italic">"CHRIST (Deemed to be University) is a nurturing ground for an individual's holistic development to make effective contribution to the society in a dynamic environment."</p>
         </motion.div>
 
         {/* Two-column layout with official images */}
@@ -58,9 +60,9 @@ export default function AboutSection() {
                 />
               </div>
               <div className="rounded-xl border border-border bg-card p-6">
-                <h3 className="font-display text-xl font-semibold mb-3 text-primary">The Vision</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">
-                  CHRIST (Deemed to be University) was born out of the educational vision of <strong className="text-foreground">St Kuriakose Elias Chavara</strong>, an educationalist and social reformer of the nineteenth century in South India. He founded the first Catholic indigenous congregation, <strong className="text-foreground">Carmelites of Mary Immaculate (CMI)</strong>, in 1831 which administers CHRIST (Deemed to be University).
+                <h3 className="font-display text-xl font-semibold mb-3 text-primary">Vision</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm font-semibold text-lg">
+                  Excellence and Service
                 </p>
               </div>
             </div>
@@ -74,26 +76,24 @@ export default function AboutSection() {
                 />
               </div>
               <div className="rounded-xl border border-border bg-card p-6">
-                <h3 className="font-display text-xl font-semibold mb-3 text-primary">The Journey</h3>
+                <h3 className="font-display text-xl font-semibold mb-3 text-primary">Mission</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm">
-                  Established as 'Christ College' in 1969, it undertook path-breaking initiatives in Indian higher education. The UGC conferred Autonomy in 2004 and in 2008 declared it a Deemed to be University. Currently accredited with NAAC 'A+' Grade and ranked 63 in NIRF India Ranking 2025.
+                  CHRIST (Deemed to be University) is a nurturing ground for an individual's holistic development to make effective contribution to the society in a dynamic environment.
                 </p>
               </div>
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-xl border border-border bg-card p-6">
-              <h3 className="font-display text-xl font-semibold mb-3 text-primary">The University Today</h3>
-              <p className="text-muted-foreground leading-relaxed text-sm">
-                The multi-disciplinary University focuses on teaching, research and service, offering programmes to about 40,000+ students across campuses in Bangalore, Pune Lavasa, and Delhi NCR. The campus is a living example of harmonious multiculturalism with students from all states and around 60 different countries.
-              </p>
-            </div>
-            <div className="rounded-xl border border-border bg-card p-6">
-              <h3 className="font-display text-xl font-semibold mb-3 text-primary">Mission</h3>
-              <p className="text-muted-foreground leading-relaxed italic text-sm">
-                "CHRIST (Deemed to be University) is a nurturing ground for an individual's holistic development to make effective contribution to the society in a dynamic environment."
-              </p>
+            <div className="rounded-xl border border-border bg-card p-6 md:col-span-2">
+              <h3 className="font-display text-xl font-semibold mb-3 text-primary">Core Values</h3>
+              <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2">✦ Faith in God</li>
+                <li className="flex items-center gap-2">✦ Moral Uprightness</li>
+                <li className="flex items-center gap-2">✦ Love of Fellow Beings</li>
+                <li className="flex items-center gap-2">✦ Social Responsibility</li>
+                <li className="flex items-center gap-2">✦ Pursuit of Excellence</li>
+              </ul>
             </div>
           </div>
         </motion.div>
@@ -158,10 +158,9 @@ export default function AboutSection() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-2 rounded-2xl border border-dashed border-border bg-muted/20 h-80 flex flex-col items-center justify-center gap-3 hover:border-primary/30 transition-colors"
+            className="md:col-span-2 rounded-2xl border border-border overflow-hidden h-80"
           >
-            <span className="text-4xl">📸</span>
-            <span className="text-sm text-muted-foreground">Club Photo</span>
+            <img src={clubPhoto} alt="Eulim Science Club Group Photo" className="w-full h-full object-cover" loading="lazy" />
           </motion.div>
 
           <motion.div

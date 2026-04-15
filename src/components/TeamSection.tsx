@@ -3,12 +3,12 @@ import { Crown, Shield, Star, Sparkles } from "lucide-react";
 import { GlowCard } from "./ui/spotlight-card";
 
 const team = [
-  { name: "Shayan Azmi", role: "Architect of Inquiry", tag: "Leader", icon: Crown },
-  { name: "Aryan S. Nair", role: "Catalyst Prime", tag: "Co-Leader", icon: Shield },
-  { name: "Aryan Manna", role: "The Founding Nucleus", tag: "Ex-Leader | Mentor", icon: Star },
-  { name: "Prashant Parwani", role: "The Guiding Proton", tag: "Ex Co-Leader | Mentor", icon: Star },
-  { name: "Aryan Garg", role: "Signal Amplifier", tag: "PR & Sponsorship Head", icon: Sparkles },
-  { name: "MD. Saif", role: "Field Orchestrator", tag: "Hospitality Head", icon: Sparkles },
+  { name: "Shayan Azmi", role: "Leader", tag: "Leader", icon: Crown },
+  { name: "Aryan S. Nair", role: "Co-Leader", tag: "Co-Leader", icon: Shield },
+  { name: "Aryan Manna", role: "Ex-Leader | Mentor", tag: "Ex-Leader | Mentor", icon: Star },
+  { name: "Prashant Parwani", role: "Ex Co-Leader | Mentor", tag: "Ex Co-Leader | Mentor", icon: Star },
+  { name: "Aryan Garg", role: "PR & Sponsorship Head", tag: "PR & Sponsorship Head", icon: Sparkles },
+  { name: "MD. Saif", role: "Hospitality Head", tag: "Hospitality Head", icon: Sparkles },
 ];
 
 export default function TeamSection() {
