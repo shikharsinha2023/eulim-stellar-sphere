@@ -22,8 +22,7 @@ export default function TeamSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold text-primary tracking-widest uppercase">The Neural Network</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-3">Meet the Catalysts</h2>
+          <h2 className="font-display text-4xl md:text-5xl font-bold">Meet the Team</h2>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
