@@ -5,7 +5,8 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  :root,
+  [data-theme="dark-science"] {
     --background: 220 25% 6%;
     --foreground: 210 20% 92%;
 
@@ -49,6 +50,54 @@
     --glow-secondary: 205 80% 45%;
     --hero-gradient: linear-gradient(180deg, hsl(220 25% 4%) 0%, hsl(220 25% 8%) 50%, hsl(220 20% 6%) 100%);
     --section-gradient: linear-gradient(180deg, hsl(220 25% 6%) 0%, hsl(220 20% 10%) 100%);
+
+    font-family: 'Inter', sans-serif;
+  }
+
+  [data-theme="vintage-paper"] {
+    --background: 40 33% 92%;
+    --foreground: 30 15% 15%;
+
+    --card: 38 30% 88%;
+    --card-foreground: 30 15% 15%;
+
+    --popover: 38 30% 88%;
+    --popover-foreground: 30 15% 15%;
+
+    --primary: 25 65% 42%;
+    --primary-foreground: 40 33% 96%;
+
+    --secondary: 32 40% 65%;
+    --secondary-foreground: 30 15% 15%;
+
+    --muted: 35 20% 82%;
+    --muted-foreground: 30 10% 45%;
+
+    --accent: 18 55% 48%;
+    --accent-foreground: 40 33% 96%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 40 33% 96%;
+
+    --border: 33 18% 78%;
+    --input: 33 18% 78%;
+    --ring: 25 65% 42%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 38 28% 86%;
+    --sidebar-foreground: 30 15% 15%;
+    --sidebar-primary: 25 65% 42%;
+    --sidebar-primary-foreground: 40 33% 96%;
+    --sidebar-accent: 35 20% 80%;
+    --sidebar-accent-foreground: 30 15% 15%;
+    --sidebar-border: 33 18% 78%;
+    --sidebar-ring: 25 65% 42%;
+
+    --glow-primary: 25 65% 42%;
+    --glow-secondary: 32 40% 65%;
+    --hero-gradient: linear-gradient(180deg, hsl(40 33% 94%) 0%, hsl(38 30% 90%) 50%, hsl(40 33% 92%) 100%);
+    --section-gradient: linear-gradient(180deg, hsl(40 33% 92%) 0%, hsl(38 30% 88%) 100%);
 
     font-family: 'Inter', sans-serif;
   }
