@@ -48,8 +48,7 @@ export default function TeamSection() {
                   <m.icon size={14} className="text-primary" />
                   <h3 className="font-display text-lg font-semibold">{m.name}</h3>
                 </div>
-                <p className="text-sm text-primary font-medium z-10 relative">{m.role}</p>
-                <p className="text-xs text-muted-foreground mt-0.5 z-10 relative">{m.tag}</p>
+                <p className="text-sm text-primary font-medium z-10 relative">{m.tag}</p>
               </GlowCard>
             </motion.div>
           ))}
